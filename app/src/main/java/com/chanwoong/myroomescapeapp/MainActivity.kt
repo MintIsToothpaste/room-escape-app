@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.setGridItems(buttonGridItemList)
 
+        //binding.editText.setSelection(2)
+
         gridRecyclerView.apply {
             gridRecyclerViewAdapter = GridRecyclerViewAdapter()
             layoutManager = GridLayoutManager(this@MainActivity, 5)
