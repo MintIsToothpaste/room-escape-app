@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">나만의 방탈출</string>
-    <string name="searchHint">    검색어를 입력해주세요</string>
+    <string name="searchHint">검색어를 입력해주세요</string>
 </resources>

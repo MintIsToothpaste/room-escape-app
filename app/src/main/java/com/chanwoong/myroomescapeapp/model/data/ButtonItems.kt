@@ -1,7 +1,14 @@
 package com.chanwoong.myroomescapeapp.model.data
 
 import com.chanwoong.myroomescapeapp.R
+import com.chanwoong.myroomescapeapp.model.BannerItem
 import com.chanwoong.myroomescapeapp.model.GridItem
+
+val buttonBannerItemList = listOf(
+    BannerItem(R.drawable.salebanner),
+    BannerItem(R.drawable.salebanner2),
+    BannerItem(R.drawable.salebanner3)
+)
 
 val buttonGridItemList = listOf(
     GridItem(R.drawable.gangnam, "강남"),
@@ -12,7 +19,7 @@ val buttonGridItemList = listOf(
     GridItem(R.drawable.newtheme, "신규테마"),
     GridItem(R.drawable.easy, "쉬운 테마"),
     GridItem(R.drawable.hard, "어려운 테마"),
-    GridItem(R.drawable.newtheme, "공포"),
+    GridItem(R.drawable.fear, "공포"),
     GridItem(R.drawable.ban, "19금")
     /*GridItem(R.drawable.k, "이색 컨텐츠"),
     GridItem(R.drawable.l, "지도보기"),
