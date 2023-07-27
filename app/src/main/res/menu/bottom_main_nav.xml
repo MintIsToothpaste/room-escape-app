@@ -4,32 +4,31 @@
 
     <item
         android:id = "@+id/nav_cafe"
-        android:icon ="@drawable/icon"
+        android:icon ="@drawable/cafe"
         android:enabled = "true"
         android:title="@string/cafe"/>
 
     <item
         android:id = "@+id/nav_theme"
-        android:icon ="@drawable/icon"
+        android:icon ="@drawable/theme"
         android:enabled = "true"
         android:title="@string/theme"/>
 
     <item
         android:id = "@+id/nav_home"
-        android:icon ="@drawable/icon"
+        android:icon ="@drawable/home"
         android:enabled = "true"
-        android:checkable ="true"
         android:title="@string/home"/>
 
     <item
         android:id = "@+id/nav_community"
-        android:icon ="@drawable/icon"
+        android:icon ="@drawable/community"
         android:enabled = "true"
         android:title="@string/community"/>
 
     <item
         android:id = "@+id/nav_profile"
-        android:icon ="@drawable/icon"
+        android:icon ="@drawable/profile"
         android:enabled = "true"
         android:title="@string/my"/>
 

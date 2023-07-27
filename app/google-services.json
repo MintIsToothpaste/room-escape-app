@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "848720428686",
+    "project_id": "my-room-escape-app",
+    "storage_bucket": "my-room-escape-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848720428686:android:98e8768534e954fd93d3df",
+        "android_client_info": {
+          "package_name": "com.chanwoong.myroomescapeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848720428686-61jun9ke8rgegb6tehkujo5u0emcahh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHRjn7XKDh2ZLyGhcX0K_OFHRaMQXC5To"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848720428686-61jun9ke8rgegb6tehkujo5u0emcahh1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
