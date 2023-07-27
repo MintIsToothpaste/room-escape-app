@@ -69,8 +69,8 @@
                     app:srcCompat="@drawable/icon" />
 
                 <EditText
-                    android:id="@+id/editText"
-                    android:layout_width="240dp"
+                    android:id="@+id/searchEditText"
+                    android:layout_width="250dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/rectangle_all_corner_radius"
@@ -94,6 +94,16 @@
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/myroom" />
+
+                <ImageView
+                    android:id="@+id/likeButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/rectangle_all_corner_radius"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/heart" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

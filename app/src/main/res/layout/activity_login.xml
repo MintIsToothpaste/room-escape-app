@@ -25,6 +25,7 @@
         android:background="@drawable/rectangle_all_corner_radius"
         android:ems="10"
         android:hint="  이메일을 입력해주세요"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
@@ -39,6 +40,7 @@
         android:background="@drawable/rectangle_all_corner_radius"
         android:ems="10"
         android:hint="  비밀번호를 입력해주세요"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/membership"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

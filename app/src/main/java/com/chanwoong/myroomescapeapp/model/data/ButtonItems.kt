@@ -20,10 +20,10 @@ val buttonGridItemList = listOf(
     GridItem(R.drawable.easy, "쉬운 테마"),
     GridItem(R.drawable.hard, "어려운 테마"),
     GridItem(R.drawable.fear, "공포"),
-    GridItem(R.drawable.ban, "19금")
-    /*GridItem(R.drawable.k, "이색 컨텐츠"),
-    GridItem(R.drawable.l, "지도보기"),
-    GridItem(R.drawable.m, "커뮤니티"),
-    GridItem(R.drawable.n, "이벤트"),
-    GridItem(R.drawable.o, "문의하기"), //Last Item is Blank*/
+    GridItem(R.drawable.ban, "19금"),
+    GridItem(R.drawable.contents, "이색 컨텐츠"),
+    GridItem(R.drawable.map, "지도보기"),
+    GridItem(R.drawable.community, "커뮤니티"),
+    GridItem(R.drawable.event, "이벤트"),
+    GridItem(R.drawable.help, "문의하기") //Last Item is Blank
 )
