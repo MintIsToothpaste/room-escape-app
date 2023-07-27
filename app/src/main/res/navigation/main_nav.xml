@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.chanwoong.myroomescapeapp.fragment.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_cafe"
+            app:destination="@id/nav_cafe" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_community"
+            app:destination="@id/nav_community" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_theme"
+            app:destination="@id/nav_theme" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_cafe"
+        android:name="com.chanwoong.myroomescapeapp.fragment.CafeFragment"
+        android:label="CafeFragment" />
+    <fragment
+        android:id="@+id/nav_community"
+        android:name="com.chanwoong.myroomescapeapp.fragment.CommunityFragment"
+        android:label="CommunityFragment" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.chanwoong.myroomescapeapp.fragment.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/nav_theme"
+        android:name="com.chanwoong.myroomescapeapp.fragment.ThemeFragment"
+        android:label="ThemeFragment" />
+</navigation>

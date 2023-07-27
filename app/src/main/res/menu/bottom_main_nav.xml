@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id = "@+id/nav_cafe"
+        android:icon ="@drawable/icon"
+        android:enabled = "true"
+        android:title="@string/cafe"/>
+
+    <item
+        android:id = "@+id/nav_theme"
+        android:icon ="@drawable/icon"
+        android:enabled = "true"
+        android:title="@string/theme"/>
+
+    <item
+        android:id = "@+id/nav_home"
+        android:icon ="@drawable/icon"
+        android:enabled = "true"
+        android:checkable ="true"
+        android:title="@string/home"/>
+
+    <item
+        android:id = "@+id/nav_community"
+        android:icon ="@drawable/icon"
+        android:enabled = "true"
+        android:title="@string/community"/>
+
+    <item
+        android:id = "@+id/nav_profile"
+        android:icon ="@drawable/icon"
+        android:enabled = "true"
+        android:title="@string/my"/>
+
+</menu>
