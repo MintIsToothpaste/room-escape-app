@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toolbar
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.chanwoong.myroomescapeapp.R
 import com.chanwoong.myroomescapeapp.databinding.FragmentCafeBinding
 
 class CafeFragment : Fragment(){
@@ -43,5 +45,18 @@ class CafeFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentCafeBinding.bind(view)
 
+        binding.toolbarCafe.inflateMenu(R.menu.toolbar_cafe_menu)
+
+        binding.toolbarCafe.setOnMenuItemClickListener {
+            when (it.itemId){
+                R.id.app_bar_search -> {
+                    true
+                }
+                R.id.app_bar_filter -> {
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
