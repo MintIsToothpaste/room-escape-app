@@ -15,9 +15,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name=".SplashActivity"
@@ -28,6 +25,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".MapActivity" />
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="4gxuwpk3lc" />
     </application>
 
 </manifest>

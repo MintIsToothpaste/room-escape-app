@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_theme -> ThemeFragment()
                 R.id.nav_home -> HomeFragment()
                 R.id.nav_community -> CommunityFragment()
-                else -> ProfileFragment()
+                R.id.nav_profile -> ProfileFragment()
+                else -> throw IllegalArgumentException("not found menu item id")
             }
             replaceFragment(fragment)
             true

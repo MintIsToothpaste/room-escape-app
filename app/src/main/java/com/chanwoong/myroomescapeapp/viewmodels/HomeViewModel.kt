@@ -16,6 +16,8 @@ class HomeViewModel : ViewModel() {
     private val _gridItemList: MutableLiveData<List<GridItem>> = MutableLiveData()
     private val _currentPosition: MutableLiveData<Int> = MutableLiveData()
 
+    val itemClickEvent = MutableLiveData<Int>()
+
     val bannerItemList: LiveData<List<BannerItem>>
         get() = _bannerItemList
     val gridItemList: LiveData<List<GridItem>>
@@ -25,6 +27,7 @@ class HomeViewModel : ViewModel() {
 
     init {
         _currentPosition.value = 0
+        itemClickEvent.value = -1
     }
 
     fun setCurrentPosition(position: Int) {

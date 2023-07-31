@@ -1,5 +1,7 @@
 package com.chanwoong.myroomescapeapp.fragment
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.chanwoong.myroomescapeapp.LoginActivity
 import com.chanwoong.myroomescapeapp.adapter.GridRecyclerViewAdapter
 import com.chanwoong.myroomescapeapp.adapter.ViewPagerAdapter
 import com.chanwoong.myroomescapeapp.databinding.FragmentHomeBinding
@@ -60,6 +63,7 @@ class HomeFragment : Fragment() {
         initViewPager2()
         subscribeObservers()
         autoScrollViewPager()
+
     }
 
     private fun initGridRecyclerView(){
@@ -77,6 +81,7 @@ class HomeFragment : Fragment() {
             viewPagerAdapter = ViewPagerAdapter()
             adapter = viewPagerAdapter
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                @SuppressLint("SetTextI18n")
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     tv_page_number.text = "${position + 1}"
