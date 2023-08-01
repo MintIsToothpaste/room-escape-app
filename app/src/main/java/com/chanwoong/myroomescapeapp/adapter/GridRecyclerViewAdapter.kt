@@ -1,17 +1,19 @@
 package com.chanwoong.myroomescapeapp.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.chanwoong.myroomescapeapp.MapActivity
 import com.chanwoong.myroomescapeapp.R
 import com.chanwoong.myroomescapeapp.model.GridItem
 import kotlinx.android.synthetic.main.item_layout_grid.view.*
 
 class GridRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var gridItemList: List<GridItem>? = null
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return GridItemViewHolder(
@@ -40,6 +42,15 @@ class GridRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
         fun bind(gridItem: GridItem) {
             itemView.iv_grid_image.setImageResource(gridItem.image)
             itemView.tv_grid_title.text = gridItem.title
+
+            itemView.setOnClickListener {
+                if(itemView.tv_grid_title.text.equals("지도보기")){
+                    val intent = Intent(itemView.context, MapActivity::class.java)
+                    startActivity(itemView.context, intent, null)
+                }
+            }
+
         }
     }
+
 }
