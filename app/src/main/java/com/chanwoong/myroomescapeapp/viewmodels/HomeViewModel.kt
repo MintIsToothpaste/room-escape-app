@@ -33,6 +33,7 @@ class HomeViewModel : ViewModel() {
     fun setCurrentPosition(position: Int) {
         _currentPosition.value = position
     }
+
     fun getCurrentPosition() = currentPosition.value
 
     fun getBannerItems() {
