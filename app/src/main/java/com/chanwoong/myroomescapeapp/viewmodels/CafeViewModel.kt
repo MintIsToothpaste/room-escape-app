@@ -2,17 +2,17 @@ package com.chanwoong.myroomescapeapp.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.chanwoong.myroomescapeapp.model.RoomsModel
 
-data class Item(val title: String)
 
 class CafeViewModel : ViewModel(){
-    val itemsListData = MutableLiveData<ArrayList<Item>>()
-    val items = ArrayList<Item>()
+    val itemsListData = MutableLiveData<ArrayList<RoomsModel>>()
+    val items = ArrayList<RoomsModel>()
 
     init {
-        items.add(Item("키이스케이프 강남점"))
-        items.add(Item("키이스케이프 홍대점"))
-        items.add(Item("키이스케이프 쌍문점"))
+        items.add(RoomsModel("키이스케이프 강남점", 1111.1, 1111.1))
+        items.add(RoomsModel("키이스케이프 홍대점", 1111.1, 1111.1))
+        items.add(RoomsModel("키이스케이프 쌍문점", 1111.1, 1111.1))
     }
 
     fun getItem(pos: Int) =  items[pos]
@@ -22,11 +22,11 @@ class CafeViewModel : ViewModel(){
 
     val itemClickEvent = MutableLiveData<Int>()
 
-    fun addItem(item: Item) {
+    fun addItem(item: RoomsModel) {
         items.add(item)
         itemsListData.value = items // let the observer know the livedata changed
     }
-    fun updateItem(pos: Int, item: Item) {
+    fun updateItem(pos: Int, item: RoomsModel) {
         items[pos] = item
         itemsListData.value = items // 옵저버에게 라이브데이터가 변경된 것을 알리기 위해
     }

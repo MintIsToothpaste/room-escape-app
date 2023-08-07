@@ -1,11 +1,13 @@
 package com.chanwoong.myroomescapeapp.fragment
 
+import android.content.ContentValues.TAG
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import android.widget.Toolbar
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -16,9 +18,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.chanwoong.myroomescapeapp.R
 import com.chanwoong.myroomescapeapp.adapter.CafeRecyclerViewAdapter
 import com.chanwoong.myroomescapeapp.databinding.FragmentCafeBinding
+import com.chanwoong.myroomescapeapp.model.RoomsResponse
+import com.chanwoong.myroomescapeapp.model.RoomsService
 import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_cafe.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class CafeFragment : Fragment(){
     private var _binding: FragmentCafeBinding? = null
@@ -58,7 +67,43 @@ class CafeFragment : Fragment(){
         initCafeRecyclerView()
         initToolbar()
         initTabLayout()
+        naverLocalApi()
 
+    }
+
+    private fun naverLocalApi(){
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://openapi.naver.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        retrofit.create(RoomsService::class.java).also {
+            it.getRoomsList("hmEcUzVuPllHwwX9I0F8", "pb2FgnUPG9", query = "강남 방탈출")
+                .enqueue(object  : Callback<RoomsResponse> {
+                    override fun onResponse(
+                        call: Call<RoomsResponse>,
+                        response: Response<RoomsResponse>
+                    ) {
+                        if (response.isSuccessful.not()) {
+                            // 통신 실패
+                            Toast.makeText(
+                                context,
+                                "Error!!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return
+                        }
+                        // 통신 성공
+                        response.body()?.let { dto ->
+                            Log.d(TAG, "$it 로그 입니다")
+                        }
+                }
+
+                    override fun onFailure(call: Call<RoomsResponse>, t: Throwable) {
+                        // 통신 실패 시
+                    }
+                })
+        }
     }
 
     private fun initCafeRecyclerView(){
