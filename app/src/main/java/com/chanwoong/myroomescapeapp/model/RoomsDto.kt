@@ -8,7 +8,7 @@ data class RoomsResponse(
 )
 data class RoomsChannel(
     @SerializedName("channel")
-    var channel : RoomsList
+    var item : RoomsList
 )
 data class RoomsList(
     // 이렇게 마지막 list에 담긴 아이템들은 RoomsModel 타입의 리스트로 저장한다.

@@ -6,4 +6,6 @@
     <string name="home">홈</string>
     <string name="community">커뮤니티</string>
     <string name="my">MY</string>
+    <string name="검색">search</string>
+    <string name="분류">filter</string>
 </resources>
