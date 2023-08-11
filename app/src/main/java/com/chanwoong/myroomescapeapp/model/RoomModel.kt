@@ -6,8 +6,8 @@ import java.io.Serializable
 data class RoomsModel(
     @SerializedName("name")
     val title: String,
-    @SerializedName("x")
-    val lng: Double,
-    @SerializedName("y")
-    val lat: Double
+    @SerializedName("mapx")
+    val lng: String,
+    @SerializedName("mapy")
+    val lat: String
 ) : Serializable

@@ -7,9 +7,17 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.chanwoong.myroomescapeapp.adapter.CafeRecyclerViewAdapter
+import com.chanwoong.myroomescapeapp.adapter.ProfileMenuRecyclerViewAdapter
 import com.chanwoong.myroomescapeapp.databinding.FragmentProfileBinding
+import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
+import com.chanwoong.myroomescapeapp.viewmodels.ProfileMenuViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_cafe.*
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -17,6 +25,7 @@ class ProfileFragment : Fragment() {
     private lateinit var requestPermLauncher: ActivityResultLauncher<Array<String>>
     var retryCount = 0
 
+    private val viewModel by viewModels<ProfileMenuViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,8 +54,13 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentProfileBinding.bind(view)
 
-        binding.logout.setOnClickListener{
-            Firebase.auth.signOut()
-        }
+        initCafeRecyclerView()
+    }
+
+    private fun initCafeRecyclerView(){
+        binding.profileRecyclerView.adapter = ProfileMenuRecyclerViewAdapter(viewModel)
+        binding.profileRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.profileRecyclerView.setHasFixedSize(true)
+
     }
 }

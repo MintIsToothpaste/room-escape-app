@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cafe"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar_cafe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
