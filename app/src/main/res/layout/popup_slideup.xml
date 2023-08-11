@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <!-- Header -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="310dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="33dp">
+
+        <Button
+            android:id="@+id/solo"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_below="@+id/textView7"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/different"
+            android:backgroundTint="#FDFCFC"
+            android:stateListAnimator="@null"
+            android:text="혼방가능"
+            android:textColor="#AAAAAA" />
+
+        <Button
+            android:id="@+id/different"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_below="@+id/textView7"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/newcompany"
+            android:backgroundTint="#FDFCFC"
+            android:stateListAnimator="@null"
+            android:text="이섹 컨텐츠"
+            android:textColor="#AAAAAA" />
+
+        <Button
+            android:id="@+id/review"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_below="@+id/TextView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/recommend"
+            android:backgroundTint="#FDFCFC"
+            android:stateListAnimator="@null"
+            android:text="리뷰 많은순"
+            android:textColor="#AAAAAA" />
+
+        <Button
+            android:id="@+id/grade"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_below="@+id/TextView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/review"
+            android:backgroundTint="#FDFCFC"
+            android:stateListAnimator="@null"
+            android:text="평점 높은순"
+            android:textColor="#AAAAAA" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="58dp"
+            android:backgroundTint="#9BE5C8"
+            android:stateListAnimator="@null"
+            android:text="저장" />
+
+        <TextView
+            android:id="@+id/TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="30dp"
+            android:text="정렬"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recommend"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+            android:text="카페유형"
+            android:stateListAnimator="@null"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_below="@+id/TextView"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FDFCFC"
+            android:stateListAnimator="@null"
+            android:text="내방 추천순"
+            android:textColor="#AAAAAA" />
+
+        <Button
+            android:id="@+id/newcompany"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_below="@+id/textView7"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FDFCFC"
+            android:stateListAnimator="@null"
+            android:text="신규업체"
+            android:textColor="#AAAAAA" />
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

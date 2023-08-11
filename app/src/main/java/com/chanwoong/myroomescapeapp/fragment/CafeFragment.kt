@@ -1,14 +1,15 @@
 package com.chanwoong.myroomescapeapp.fragment
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chanwoong.myroomescapeapp.R
+import com.chanwoong.myroomescapeapp.SlideUpDialog
 import com.chanwoong.myroomescapeapp.adapter.CafeRecyclerViewAdapter
 import com.chanwoong.myroomescapeapp.databinding.FragmentCafeBinding
 import com.chanwoong.myroomescapeapp.model.RoomsResponse
@@ -126,10 +128,25 @@ class CafeFragment : Fragment(){
                     true
                 }
                 R.id.app_bar_filter -> {
+                    onSlideUpDialog()
                     true
                 }
                 else -> false
             }
+        }
+    }
+
+    private fun onSlideUpDialog() {
+        val contentView: View = (activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.popup_slideup, null)
+        val slideupPopup = SlideUpDialog.Builder(cafeRecyclerView.context)
+            .setContentView(contentView)
+            .create()
+        slideupPopup.show()
+        contentView.findViewById<Button>(R.id.save).setOnClickListener {
+            slideupPopup.dismissAnim()
+        }
+        contentView.findViewById<Button>(R.id.recommend).setOnClickListener {
+
         }
     }
 
