@@ -7,7 +7,14 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.chanwoong.myroomescapeapp.R
+import com.chanwoong.myroomescapeapp.adapter.CommunityRecyclerViewAdapter
 import com.chanwoong.myroomescapeapp.databinding.FragmentCommunityBinding
+import com.chanwoong.myroomescapeapp.viewmodels.CommunityViewModel
+import kotlinx.android.synthetic.main.fragment_community.*
 
 
 class CommunityFragment : Fragment() {
@@ -16,6 +23,7 @@ class CommunityFragment : Fragment() {
     private lateinit var requestPermLauncher: ActivityResultLauncher<Array<String>>
     var retryCount = 0
 
+    private val viewModel by viewModels<CommunityViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,5 +52,31 @@ class CommunityFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentCommunityBinding.bind(view)
 
+        initToolbar()
+        initCommunityRecyclerView()
+    }
+
+    private fun initToolbar(){
+        binding.toolbarCommunity.inflateMenu(R.menu.toolbar_community_menu)
+        binding.toolbarCommunity.setOnMenuItemClickListener {
+            when (it.itemId){
+                R.id.app_bar_search -> {
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    private fun initCommunityRecyclerView(){
+        binding.communityRecyclerView.adapter = CommunityRecyclerViewAdapter(viewModel)
+        binding.communityRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.communityRecyclerView.setHasFixedSize(true)
+
+        // 구분선 넣기
+        val dividerItemDecoration =
+            DividerItemDecoration(communityRecyclerView.context, LinearLayoutManager(context).orientation)
+
+        binding.communityRecyclerView.addItemDecoration(dividerItemDecoration)
     }
 }
