@@ -20,9 +20,12 @@ import com.chanwoong.myroomescapeapp.R
 import com.chanwoong.myroomescapeapp.SlideUpDialog
 import com.chanwoong.myroomescapeapp.adapter.CafeRecyclerViewAdapter
 import com.chanwoong.myroomescapeapp.databinding.FragmentCafeBinding
+import com.chanwoong.myroomescapeapp.model.KakaoAPI
+import com.chanwoong.myroomescapeapp.model.ResultSearchKeyword
 import com.chanwoong.myroomescapeapp.model.RoomsResponse
 import com.chanwoong.myroomescapeapp.model.RoomsService
 import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
+import com.chanwoong.myroomescapeapp.viewmodels.ListLayout
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_cafe.*
 import retrofit2.Call
@@ -37,6 +40,7 @@ class CafeFragment : Fragment(){
     private lateinit var requestPermLauncher: ActivityResultLauncher<Array<String>>
     var retryCount = 0
 
+    private val listItems = arrayListOf<ListLayout>() // 리사이클러 뷰 아이템
     private lateinit var cafeRecyclerViewAdapter: CafeRecyclerViewAdapter
     private val viewModel by viewModels<CafeViewModel>()
 
@@ -66,11 +70,57 @@ class CafeFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initCafeRecyclerView()
+        kakaoLocalApi()
         initToolbar()
         initTabLayout()
-        naverLocalApi()
+        //naverLocalApi()
 
+
+    }
+
+    private fun kakaoLocalApi(){
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://dapi.kakao.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val api = retrofit.create(KakaoAPI::class.java) // 통신 인터페이스를 객체로 생성
+        val call = api.getSearchKeyword("KakaoAK " + "a09345f5389e7045fee82d70fd034e3d", "방탈출", 15) // 검색 조건 입력
+
+        // API 서버에 요청
+        call.enqueue(object: Callback<ResultSearchKeyword> {
+            override fun onResponse(call: Call<ResultSearchKeyword>, response: Response<ResultSearchKeyword>) {
+                // 통신 성공
+                addItemsAndMarkers(response.body())
+                Log.w("LocalSearch", "통신 성공 " + response.body())
+                Log.d("ERROR RESPONSE",response.errorBody()?.string().toString())
+            }
+
+            override fun onFailure(call: Call<ResultSearchKeyword>, t: Throwable) {
+                // 통신 실패
+                Log.w("LocalSearch", "통신 실패: ${t.message}")
+            }
+        })
+    }
+
+    // 검색 결과 처리 함수
+    private fun addItemsAndMarkers(searchResult: ResultSearchKeyword?) {
+        if (!searchResult?.documents.isNullOrEmpty()) {
+            // 검색 결과 있음
+            for (document in searchResult!!.documents) {
+            // 결과를 리사이클러 뷰에 추가
+                val item = ListLayout(document.place_name,
+                    document.road_address_name,
+                    document.address_name,
+                    document.x.toDouble(),
+                    document.y.toDouble())
+                viewModel.addItem(item)
+            }
+            initCafeRecyclerView()
+        } else {
+            // 검색 결과 없음
+            Toast.makeText(context, "검색 결과가 없습니다", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun naverLocalApi(){
@@ -80,7 +130,7 @@ class CafeFragment : Fragment(){
             .build()
 
         retrofit.create(RoomsService::class.java).also {
-            it.getRoomsList("hmEcUzVuPllHwwX9I0F8", "pb2FgnUPG9", query = "강남 방탈출")
+            it.getRoomsList("hmEcUzVuPllHwwX9I0F8", "pb2FgnUPG9", query = "갈비집")
                 .enqueue(object  : Callback<RoomsResponse> {
                     override fun onResponse(
                         call: Call<RoomsResponse>,
@@ -98,6 +148,8 @@ class CafeFragment : Fragment(){
                         // 통신 성공
                         response.body()?.let { dto ->
                             Log.d(TAG, "$it 로그 입니다")
+
+                            Log.d("ERROR RESPONSE",response.errorBody()?.string().toString())
                         }
                 }
 

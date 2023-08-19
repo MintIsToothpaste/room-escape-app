@@ -14,7 +14,7 @@ class CafeRecyclerViewAdapter(private val viewModel: CafeViewModel) :
         @SuppressLint("SetTextI18n")
         fun setContents(pos: Int) {
             with (viewModel.getItem(pos)) {
-                binding.cafeName.text = title
+                binding.cafeName.text = name
 
                 //Glide.with(binding.cafeImageView).load(image).into(binding.cafeImageView)
 
