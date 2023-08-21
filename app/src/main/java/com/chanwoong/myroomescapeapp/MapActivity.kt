@@ -33,8 +33,6 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //kakaoLocalApi()
-
         mapView = binding.mapView.map_view
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this);
@@ -43,9 +41,13 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
 
     @UiThread
     override fun onMapReady(naverMap: NaverMap) {
-        val marker = Marker()
-        marker.position = LatLng(37.5670135, 126.9783740)
-        marker.map = naverMap
+
+        viewModel.items.forEach { room ->
+            val marker = Marker()
+            marker.position = LatLng(room.x, room.y)
+            marker.map = naverMap
+        }
+
     }
 
     private fun kakaoLocalApi(){

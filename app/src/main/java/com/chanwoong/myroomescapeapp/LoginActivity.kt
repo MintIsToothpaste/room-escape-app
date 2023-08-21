@@ -25,7 +25,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.membership.setOnClickListener{
-
+            startActivity(
+                Intent(this, MembershipActivity::class.java))
+            finish()
         }
 
     }
