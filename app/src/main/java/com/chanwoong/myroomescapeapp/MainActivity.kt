@@ -1,5 +1,6 @@
 package com.chanwoong.myroomescapeapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,9 @@ import com.chanwoong.myroomescapeapp.model.KakaoAPI
 import com.chanwoong.myroomescapeapp.model.ResultSearchKeyword
 import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
 import com.chanwoong.myroomescapeapp.viewmodels.ListLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +24,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<CafeViewModel>()
 
@@ -30,6 +35,16 @@ class MainActivity : AppCompatActivity() {
 
         setBottomNavigation()
         //kakaoLocalApi()
+
+        //Firebase 초기화
+        auth = Firebase.auth
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (auth.currentUser == null)
+            startActivity(Intent(this, LoginActivity::class.java))
     }
 
     private fun setBottomNavigation(){

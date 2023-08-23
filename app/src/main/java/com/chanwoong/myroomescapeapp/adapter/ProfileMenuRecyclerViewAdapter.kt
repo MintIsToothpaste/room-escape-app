@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.chanwoong.myroomescapeapp.MapActivity
+import com.chanwoong.myroomescapeapp.SettingActivity
 import com.chanwoong.myroomescapeapp.databinding.ItemLayoutProfileBinding
 import com.chanwoong.myroomescapeapp.viewmodels.ProfileMenuViewModel
 import kotlinx.android.synthetic.main.item_layout_grid.view.*
@@ -20,10 +21,11 @@ class ProfileMenuRecyclerViewAdapter(private val viewModel: ProfileMenuViewModel
             with (viewModel.getItem(pos)) {
                 binding.profileMenu.text = title
 
-
                 binding.profileMenu.setOnClickListener {
-                    val intent = Intent(itemView.context, MapActivity::class.java)
-                    ContextCompat.startActivity(itemView.context, intent, null)
+                    if(binding.profileMenu.text.equals("설정")){
+                        val intent = Intent(itemView.context, SettingActivity::class.java)
+                        ContextCompat.startActivity(itemView.context, intent, null)
+                    }
                 }
             }
         }
