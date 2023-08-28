@@ -76,6 +76,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
+
     // 네이버 지도 SDK
     implementation("com.naver.maps:map-sdk:3.17.0")
 
@@ -88,4 +89,5 @@ dependencies {
     //okhttp3
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+
 }

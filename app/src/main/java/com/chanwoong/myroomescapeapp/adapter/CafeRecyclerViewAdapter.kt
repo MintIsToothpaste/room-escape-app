@@ -1,9 +1,12 @@
 package com.chanwoong.myroomescapeapp.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.chanwoong.myroomescapeapp.CafeDetailActivity
 import com.chanwoong.myroomescapeapp.databinding.ItemLayoutCafeBinding
 import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
 
@@ -18,8 +21,9 @@ class CafeRecyclerViewAdapter(private val viewModel: CafeViewModel) :
 
                 //Glide.with(binding.cafeImageView).load(image).into(binding.cafeImageView)
 
-                binding.cafeImageView.setOnClickListener {
-
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, CafeDetailActivity::class.java)
+                    ContextCompat.startActivity(itemView.context, intent, null)
                 }
             }
         }

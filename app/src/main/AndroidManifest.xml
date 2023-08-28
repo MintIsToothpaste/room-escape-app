@@ -30,6 +30,7 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SettingActivity" />
+        <activity android:name=".CafeDetailActivity" />
         <activity
             android:name=".MembershipActivity"
             android:parentActivityName=".LoginActivity"/>

@@ -25,7 +25,7 @@ class MembershipActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        binding.loginButton.isEnabled = false
+        binding.loginButton.isEnabled = true
 
         binding.duplicateButton.setOnClickListener {
 
@@ -44,7 +44,7 @@ class MembershipActivity : AppCompatActivity() {
         }
 
         binding.loginButton.setOnClickListener {
-            // FirebaseAuth 생성
+
             val email = binding.emailMembershipEditText.text.toString().trim()
             val password = binding.passwordMembershipEditText.text.toString().trim()
             val nickname = binding.nicknameEditText.text.toString().trim()
