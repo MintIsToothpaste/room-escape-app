@@ -75,11 +75,13 @@
 
             <View
                 android:id="@+id/successView"
-                android:layout_width="183dp"
+                android:layout_width="0dp"
                 android:layout_height="108dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/rectangle_all_corner_radius"
+                app:layout_constraintEnd_toStartOf="@+id/nohintView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/keyImageView" />
 

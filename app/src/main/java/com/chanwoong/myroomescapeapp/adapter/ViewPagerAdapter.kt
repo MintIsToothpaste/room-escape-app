@@ -45,6 +45,7 @@ class ViewPagerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(bannerItem: BannerItem) {
             itemView.iv_banner_image.setImageResource(bannerItem.image)
+            itemView.iv_banner_image.clipToOutline = true
         }
     }
 }

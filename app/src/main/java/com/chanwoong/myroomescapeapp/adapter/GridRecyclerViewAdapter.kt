@@ -5,20 +5,23 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
+import com.chanwoong.myroomescapeapp.MainActivity
 import com.chanwoong.myroomescapeapp.MapActivity
-import com.chanwoong.myroomescapeapp.R
+import com.chanwoong.myroomescapeapp.databinding.ItemLayoutGridBinding
 import com.chanwoong.myroomescapeapp.model.GridItem
 import kotlinx.android.synthetic.main.item_layout_grid.view.*
 
 class GridRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var gridItemList: List<GridItem>? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return GridItemViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_layout_grid, parent, false)
-        )
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val layoutInflater = LayoutInflater.from(viewGroup.context)
+        val binding = ItemLayoutGridBinding.inflate(layoutInflater, viewGroup, false)
+
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -27,7 +30,7 @@ class GridRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         gridItemList?.let {
-            (holder as GridItemViewHolder).bind(it[position])
+            (holder as ViewHolder).setContents(it[position])
         }
     }
 
@@ -38,19 +41,29 @@ class GridRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
         notifyDataSetChanged()
     }
 
-    class GridItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(gridItem: GridItem) {
+
+    inner class ViewHolder(binding: ItemLayoutGridBinding) : RecyclerView.ViewHolder(binding.root) {
+        @SuppressLint("SetTextI18n")
+        fun setContents(gridItem: GridItem) {
             itemView.iv_grid_image.setImageResource(gridItem.image)
             itemView.tv_grid_title.text = gridItem.title
 
             itemView.setOnClickListener {
-                if(itemView.tv_grid_title.text.equals("지도보기")){
-                    val intent = Intent(itemView.context, MapActivity::class.java)
-                    startActivity(itemView.context, intent, null)
-                }
+                itemClickListner.onClick(it, bindingAdapterPosition)
             }
-
         }
     }
+
+    interface ItemClickListener{
+        fun onClick(view: View,position: Int)
+    }
+    //를릭 리스너
+    private lateinit var itemClickListner: ItemClickListener
+    fun setItemClickListener(itemClickListener: ItemClickListener) {
+        this.itemClickListner = itemClickListener
+    }
+
+
+
 
 }

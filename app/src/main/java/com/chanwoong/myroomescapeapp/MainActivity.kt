@@ -7,7 +7,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
-import androidx.navigation.ui.AppBarConfiguration
 import com.chanwoong.myroomescapeapp.databinding.ActivityMainBinding
 import com.chanwoong.myroomescapeapp.fragment.*
 import com.chanwoong.myroomescapeapp.model.KakaoAPI
@@ -66,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun replaceFragment(fragment: Fragment){
+    fun replaceFragment(fragment: Fragment){
         supportFragmentManager.beginTransaction()
             .replace(R.id.nav_host_fragment_container, fragment, "")
             .commit()

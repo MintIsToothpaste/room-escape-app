@@ -54,10 +54,10 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentProfileBinding.bind(view)
 
-        initCafeRecyclerView()
+        initProfileRecyclerView()
     }
 
-    private fun initCafeRecyclerView(){
+    private fun initProfileRecyclerView(){
         binding.profileRecyclerView.adapter = ProfileMenuRecyclerViewAdapter(viewModel)
         binding.profileRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.profileRecyclerView.setHasFixedSize(true)
