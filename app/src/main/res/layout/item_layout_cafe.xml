@@ -14,8 +14,7 @@
         android:id="@+id/cafeImageView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@drawable/rectangle_all_corner_radius"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        android:background="@drawable/rectangle_all_corner_radius" />
 
     <Space
         android:layout_width="match_parent"

@@ -12,9 +12,13 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.chanwoong.myroomescapeapp.R
 import com.chanwoong.myroomescapeapp.SlideUpDialog
+import com.chanwoong.myroomescapeapp.adapter.ThemeRecyclerViewAdapter
 import com.chanwoong.myroomescapeapp.databinding.FragmentThemeBinding
+import com.chanwoong.myroomescapeapp.viewmodels.ThemeViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_cafe.*
 import kotlinx.android.synthetic.main.fragment_theme.*
@@ -24,6 +28,8 @@ class ThemeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var requestPermLauncher: ActivityResultLauncher<Array<String>>
     var retryCount = 0
+
+    private val viewModel by viewModels<ThemeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,7 +61,20 @@ class ThemeFragment : Fragment() {
 
         initToolbar()
         initTabLayout()
+        initThemeRecyclerView()
 
+    }
+
+    private fun initThemeRecyclerView(){
+        binding.themeRecyclerView.adapter = ThemeRecyclerViewAdapter(viewModel)
+        binding.themeRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.themeRecyclerView.setHasFixedSize(true)
+
+        // 구분선 넣기
+        val dividerItemDecoration =
+            DividerItemDecoration(themeRecyclerView.context, LinearLayoutManager(context).orientation)
+
+        binding.themeRecyclerView.addItemDecoration(dividerItemDecoration)
     }
 
     private fun initToolbar(){

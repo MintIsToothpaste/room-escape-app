@@ -3,17 +3,15 @@ package com.chanwoong.myroomescapeapp.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-data class Community(val title: String, val post: String, val nickname: String)
+data class CafeDetailThemeList(val name: String, // 테마명
+                     val cafeName: String, // 카페명
+                     val url: String, // 이미지
+                     val location: String) // 위치
 
-class CommunityViewModel : ViewModel(){
-    private val itemsListData = MutableLiveData<ArrayList<Community>>()
-    private val items = ArrayList<Community>()
+class CafeDetailThemeViewModel : ViewModel(){
+    val itemsListData = MutableLiveData<ArrayList<CafeDetailThemeList>>()
+    val items = ArrayList<CafeDetailThemeList>()
 
-    init {
-        items.add(Community("공지사항", "아직 개발중 입니다", " 관리자"))
-        items.add(Community("공지사항", "아직 개발중 입니다", " 관리자"))
-        items.add(Community("공지사항", "아직 개발중 입니다", " 관리자"))
-    }
 
     fun getItem(pos: Int) =  items[pos]
 
@@ -22,11 +20,11 @@ class CommunityViewModel : ViewModel(){
 
     val itemClickEvent = MutableLiveData<Int>()
 
-    fun addItem(item: Community) {
+    fun addItem(item: CafeDetailThemeList) {
         items.add(item)
         itemsListData.value = items // let the observer know the livedata changed
     }
-    fun updateItem(pos: Int, item: Community) {
+    fun updateItem(pos: Int, item: CafeDetailThemeList) {
         items[pos] = item
         itemsListData.value = items // 옵저버에게 라이브데이터가 변경된 것을 알리기 위해
     }

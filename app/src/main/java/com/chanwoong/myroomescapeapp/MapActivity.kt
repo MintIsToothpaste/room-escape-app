@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.chanwoong.myroomescapeapp.databinding.ActivityMapBinding
 import com.chanwoong.myroomescapeapp.model.KakaoAPI
 import com.chanwoong.myroomescapeapp.model.ResultSearchKeyword
+import com.chanwoong.myroomescapeapp.viewmodels.CafeList
 import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
-import com.chanwoong.myroomescapeapp.viewmodels.ListLayout
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.MapView
 import com.naver.maps.map.NaverMap
@@ -81,11 +81,9 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
             // 검색 결과 있음
             for (document in searchResult!!.documents) {
                 // 결과를 리사이클러 뷰에 추가
-                val item = ListLayout(document.place_name,
-                    document.road_address_name,
-                    document.address_name,
+                val item = CafeList(document.place_name,
                     document.x.toDouble(),
-                    document.y.toDouble())
+                    document.y.toDouble(),"","")
                 viewModel.addItem(item)
             }
         } else {

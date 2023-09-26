@@ -1,48 +1,48 @@
 package com.chanwoong.myroomescapeapp.adapter
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.chanwoong.myroomescapeapp.CafeDetailActivity
-import com.chanwoong.myroomescapeapp.databinding.ItemLayoutCafeBinding
+import com.chanwoong.myroomescapeapp.databinding.ItemLayoutCafeDetailBinding
+import com.chanwoong.myroomescapeapp.viewmodels.CafeDetailThemeList
 import com.chanwoong.myroomescapeapp.viewmodels.CafeDetailThemeViewModel
-
-import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
+import com.chanwoong.myroomescapeapp.viewmodels.ThemeViewModel
 import com.google.firebase.storage.FirebaseStorage
 
-class CafeRecyclerViewAdapter(private val viewModel: CafeViewModel) :
-    RecyclerView.Adapter<CafeRecyclerViewAdapter.ViewHolder>() {
+class CafeDetailThemeRecyclerViewAdapter (private val viewModel: CafeDetailThemeViewModel) :
+    RecyclerView.Adapter<CafeDetailThemeRecyclerViewAdapter.ViewHolder>() {
 
-    inner class ViewHolder(private val binding: ItemLayoutCafeBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemLayoutCafeDetailBinding) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun setContents(pos: Int) {
             val storage: FirebaseStorage = FirebaseStorage.getInstance("gs://my-room-escape-app.appspot.com/")
             val storageReference = storage.reference
 
             with (viewModel.getItem(pos)) {
-                val pathReference = storageReference.child("cafe/$url")
+                val pathReference = storageReference.child("recommendedTheme/$url")
 
-                binding.cafeName.text = name
+                binding.themeNameTextView.text = name
+                binding.cafeNameTextView.text = cafeName
 
                 pathReference.downloadUrl.addOnSuccessListener { uri ->
-                    Glide.with(binding.cafeImageView)
+                    Glide.with(binding.recommendedThemeImageView)
                         .load(uri)
                         .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .centerCrop()
-                        .into(binding.cafeImageView)
+                        .into(binding.recommendedThemeImageView)
 
-                    binding.cafeImageView.clipToOutline = true
+                    binding.recommendedThemeImageView.clipToOutline = true
                 }
 
                 itemView.setOnClickListener {
+                    val item = CafeDetailThemeList("", "", "", "")
+                    viewModel.addItem(item)
 
-                    val intent = Intent(itemView.context, CafeDetailActivity::class.java)
-                    ContextCompat.startActivity(itemView.context, intent, null)
+                    //val intent = Intent(itemView.context, CafeDetailActivity::class.java)
+                    //ContextCompat.startActivity(itemView.context, intent, null)
                 }
             }
         }
@@ -50,7 +50,7 @@ class CafeRecyclerViewAdapter(private val viewModel: CafeViewModel) :
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(viewGroup.context)
-        val binding = ItemLayoutCafeBinding.inflate(layoutInflater, viewGroup, false)
+        val binding = ItemLayoutCafeDetailBinding.inflate(layoutInflater, viewGroup, false)
 
         return ViewHolder(binding)
     }

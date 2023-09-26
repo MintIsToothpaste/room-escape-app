@@ -38,8 +38,7 @@
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                android:layout_height="250dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,7 +92,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="16dp" />
 
                 <View
                     android:id="@+id/view4"
@@ -103,7 +102,7 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="10dp" />
+                    android:layout_height="16dp" />
 
                 <TextView
                     android:id="@+id/themeNameEditText3"
@@ -111,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:text="테마"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <Space
@@ -119,7 +118,7 @@
                     android:layout_height="10dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/themeRecyclerView"
+                    android:id="@+id/cafeDetailThemeRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:nestedScrollingEnabled="false" />
@@ -128,14 +127,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="10dp" />
 
+                <TextView
+                    android:id="@+id/themeNameEditText4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="리뷰"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                <!-- 네이버 지도 -->
-                <com.naver.maps.map.MapView
-                    android:id="@+id/map_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="250dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
 
             </LinearLayout>
+
+
 
         </LinearLayout>
 

@@ -24,8 +24,8 @@ import com.chanwoong.myroomescapeapp.model.KakaoAPI
 import com.chanwoong.myroomescapeapp.model.ResultSearchKeyword
 import com.chanwoong.myroomescapeapp.model.RoomsResponse
 import com.chanwoong.myroomescapeapp.model.RoomsService
+import com.chanwoong.myroomescapeapp.viewmodels.CafeList
 import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
-import com.chanwoong.myroomescapeapp.viewmodels.ListLayout
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_cafe.*
 import retrofit2.Call
@@ -40,7 +40,7 @@ class CafeFragment : Fragment(){
     private lateinit var requestPermLauncher: ActivityResultLauncher<Array<String>>
     var retryCount = 0
 
-    private val listItems = arrayListOf<ListLayout>() // 리사이클러 뷰 아이템
+    private val listItems = arrayListOf<CafeList>() // 리사이클러 뷰 아이템
     private lateinit var cafeRecyclerViewAdapter: CafeRecyclerViewAdapter
     private val viewModel by viewModels<CafeViewModel>()
 
@@ -70,10 +70,11 @@ class CafeFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        kakaoLocalApi()
         initToolbar()
         initTabLayout()
+        //kakaoLocalApi()
         //naverLocalApi()
+        initCafeRecyclerView()
 
 
     }
@@ -109,11 +110,9 @@ class CafeFragment : Fragment(){
             // 검색 결과 있음
             for (document in searchResult!!.documents) {
             // 결과를 리사이클러 뷰에 추가
-                val item = ListLayout(document.place_name,
-                    document.road_address_name,
-                    document.address_name,
+                val item = CafeList(document.place_name,
                     document.x.toDouble(),
-                    document.y.toDouble())
+                    document.y.toDouble(), "", "")
                 viewModel.addItem(item)
             }
             initCafeRecyclerView()

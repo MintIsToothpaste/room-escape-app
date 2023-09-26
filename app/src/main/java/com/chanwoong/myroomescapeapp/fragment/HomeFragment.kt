@@ -1,6 +1,7 @@
 package com.chanwoong.myroomescapeapp.fragment
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -28,6 +29,8 @@ import com.chanwoong.myroomescapeapp.databinding.FragmentHomeBinding
 import com.chanwoong.myroomescapeapp.model.data.buttonGridItemList
 import com.chanwoong.myroomescapeapp.viewmodels.HomeViewModel
 import com.chanwoong.myroomescapeapp.viewmodels.RecommendedThemeViewModel
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.item_layout_grid.view.*
 import kotlinx.coroutines.delay
@@ -40,6 +43,7 @@ class HomeFragment : Fragment() {
     var activity: MainActivity? = null
     var retryCount = 0
 
+    private val db = Firebase.firestore
 
     private lateinit var gridRecyclerViewAdapter: GridRecyclerViewAdapter
     private lateinit var viewPagerAdapter: ViewPagerAdapter
