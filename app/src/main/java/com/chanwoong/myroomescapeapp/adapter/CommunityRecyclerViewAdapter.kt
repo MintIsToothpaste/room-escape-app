@@ -23,7 +23,6 @@ class CommunityRecyclerViewAdapter (private val viewModel: CommunityViewModel) :
                 binding.postName.text = title
                 binding.post.text = post
                 binding.nickName.text = nickname
-
             }
         }
     }

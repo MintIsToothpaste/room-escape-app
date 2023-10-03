@@ -31,6 +31,8 @@ class MembershipActivity : AppCompatActivity() {
 
         binding.duplicateButton.setOnClickListener {
             val testId = binding.emailMembershipEditText.text.toString().trim()
+            val password = binding.passwordMembershipEditText.text.toString().trim()
+            val password2 = binding.passwordMembershipEditText2.text.toString().trim()
             val docRef = db.collection("users")
 
             var checkId = false
@@ -56,6 +58,11 @@ class MembershipActivity : AppCompatActivity() {
             if(!checkEmail(testId)){
                 checkId = true
                 Toast.makeText(this, "이메일 형식에 맞게 입력하세요", Toast.LENGTH_SHORT).show()
+            }
+
+            if(password != password2){
+                checkId = true
+                Toast.makeText(this, "비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
             }
 
             if (!checkId) {

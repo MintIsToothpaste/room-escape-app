@@ -85,15 +85,14 @@ class CommunityFragment : Fragment() {
             .addOnSuccessListener { result ->
                 for (document in result) {
                     if (document != null) {
-                        Log.d(ContentValues.TAG, "DocumentSnapshot successfully written!")
-                        val post = document["post"]
-                        val nickname = document["nickname"]
-                        val title = document["title"]
+                        val post = document["post"].toString()
+                        val nickname = document["nickname"].toString()
+                        val title = document["title"].toString()
 
                         val item = Community(
-                            title as String,
-                            post as String,
-                            nickname as String
+                            title,
+                            post,
+                            nickname
                         )
 
                         Log.d(ContentValues.TAG, item.toString())
@@ -132,5 +131,7 @@ class CommunityFragment : Fragment() {
             DividerItemDecoration(communityRecyclerView.context, LinearLayoutManager(context).orientation)
 
         binding.communityRecyclerView.addItemDecoration(dividerItemDecoration)
+
+        Log.d(ContentValues.TAG, "리사이클러뷰 순서 확인")
     }
 }
