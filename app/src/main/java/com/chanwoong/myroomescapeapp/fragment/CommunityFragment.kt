@@ -3,6 +3,8 @@ package com.chanwoong.myroomescapeapp.fragment
 import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +28,7 @@ import com.chanwoong.myroomescapeapp.viewmodels.CommunityViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_community.*
+import kotlinx.coroutines.delay
 
 
 class CommunityFragment : Fragment() {
@@ -60,6 +63,7 @@ class CommunityFragment : Fragment() {
         attachSnapshotListener()
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -70,7 +74,9 @@ class CommunityFragment : Fragment() {
         val binding = FragmentCommunityBinding.bind(view)
 
         initToolbar()
-        initCommunityRecyclerView()
+        Handler(Looper.getMainLooper()).postDelayed({
+            initCommunityRecyclerView()
+        }, 800)
 
         binding.postingButton.setOnClickListener {
             val intent = Intent(context, CommunityPostingActivity::class.java)
@@ -130,8 +136,5 @@ class CommunityFragment : Fragment() {
         val dividerItemDecoration =
             DividerItemDecoration(communityRecyclerView.context, LinearLayoutManager(context).orientation)
 
-        binding.communityRecyclerView.addItemDecoration(dividerItemDecoration)
-
-        Log.d(ContentValues.TAG, "리사이클러뷰 순서 확인")
-    }
+        binding.communityRecyclerView.addItemDecoration(dividerItemDecoration) }
 }

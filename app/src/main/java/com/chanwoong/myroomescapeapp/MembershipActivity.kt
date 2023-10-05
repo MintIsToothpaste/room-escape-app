@@ -112,7 +112,8 @@ class MembershipActivity : AppCompatActivity() {
         val user = hashMapOf(
             "email" to email,
             "password" to password,
-            "nickname" to nickname
+            "nickname" to nickname,
+            "review" to 0
         )
 
         if (users != null) {

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.chanwoong.myroomescapeapp.MapActivity
+import com.chanwoong.myroomescapeapp.NoticeActivity
 import com.chanwoong.myroomescapeapp.SettingActivity
 import com.chanwoong.myroomescapeapp.databinding.ItemLayoutProfileBinding
 import com.chanwoong.myroomescapeapp.viewmodels.ProfileMenuViewModel
@@ -24,6 +25,11 @@ class ProfileMenuRecyclerViewAdapter(private val viewModel: ProfileMenuViewModel
                 binding.profileMenu.setOnClickListener {
                     if(binding.profileMenu.text.equals("설정")){
                         val intent = Intent(itemView.context, SettingActivity::class.java)
+                        ContextCompat.startActivity(itemView.context, intent, null)
+                    }
+
+                    else if (binding.profileMenu.text.equals("공지사항")){
+                        val intent = Intent(itemView.context, NoticeActivity::class.java)
                         ContextCompat.startActivity(itemView.context, intent, null)
                     }
                 }

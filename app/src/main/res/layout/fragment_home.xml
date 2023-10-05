@@ -68,22 +68,33 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/icon" />
 
-                <EditText
-                    android:id="@+id/searchEditText"
+                <View
+                    android:id="@+id/view1"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/rectangle_all_corner_radius"
                     android:ems="10"
-                    android:hint="    검색어를 입력해주세요"
-                    android:inputType="text"
-                    android:textSize="10sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/likeButton"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="SmallSp,TouchTargetSizeCheck" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/searchEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="검색어를 입력해주세요"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/view1"
+                    app:layout_constraintEnd_toEndOf="@+id/view1"
+                    app:layout_constraintStart_toStartOf="@+id/view1"
+                    app:layout_constraintTop_toTopOf="@+id/view1" />
 
                 <ImageView
                     android:id="@+id/imageView"
