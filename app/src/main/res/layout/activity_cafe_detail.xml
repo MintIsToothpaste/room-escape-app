@@ -23,10 +23,10 @@
                 android:layout_height="16dp" />
 
             <TextView
-                android:id="@+id/themeNameEditText"
+                android:id="@+id/cafeNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="테마 이름"
+                android:text="카페 이름"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -36,7 +36,7 @@
                 android:layout_height="16dp" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/themeImageView"
                 android:layout_width="match_parent"
                 android:layout_height="250dp" />
 
@@ -47,10 +47,10 @@
                 android:padding="20dp">
 
                 <TextView
-                    android:id="@+id/themeNameEditText2"
+                    android:id="@+id/cafeNameEditText2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="테마 이름"
+                    android:text="카페 이름"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />

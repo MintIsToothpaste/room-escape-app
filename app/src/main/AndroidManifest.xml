@@ -31,6 +31,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".ReviewActivity" />
         <activity android:name=".NoticeActivity" />
+        <activity android:name=".MyPostActivity" />
         <activity android:name=".CommunityPostingActivity"
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".SettingActivity"

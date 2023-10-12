@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="33dp">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/solo"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
@@ -21,12 +21,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/different"
-            android:backgroundTint="#FDFCFC"
-            android:stateListAnimator="@null"
+            android:background="@drawable/selector"
             android:text="혼방가능"
             android:textColor="#AAAAAA" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/different"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
@@ -34,12 +33,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/newcompany"
-            android:backgroundTint="#FDFCFC"
-            android:stateListAnimator="@null"
+            android:background="@drawable/selector"
             android:text="이섹 컨텐츠"
             android:textColor="#AAAAAA" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/review"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
@@ -47,12 +45,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/recommend"
-            android:backgroundTint="#FDFCFC"
-            android:stateListAnimator="@null"
+            android:background="@drawable/selector"
             android:text="리뷰 많은순"
             android:textColor="#AAAAAA" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/grade"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
@@ -60,12 +57,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/review"
-            android:backgroundTint="#FDFCFC"
-            android:stateListAnimator="@null"
+            android:background="@drawable/selector"
             android:text="평점 높은순"
             android:textColor="#AAAAAA" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -75,9 +71,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="58dp"
-            android:backgroundTint="#9BE5C8"
-            android:stateListAnimator="@null"
-            android:text="저장" />
+            android:background="@drawable/selector"
+            android:text="저장"
+            android:textColor="#AAAAAA" />
 
         <TextView
             android:id="@+id/TextView"
@@ -104,7 +100,7 @@
             android:textColor="@color/black"
             android:textSize="15dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/recommend"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
@@ -112,12 +108,11 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#FDFCFC"
-            android:stateListAnimator="@null"
+            android:background="@drawable/selector"
             android:text="내방 추천순"
             android:textColor="#AAAAAA" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/newcompany"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
@@ -125,8 +120,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="18dp"
             android:layout_marginTop="8dp"
-            android:backgroundTint="#FDFCFC"
-            android:stateListAnimator="@null"
+            android:background="@drawable/selector"
             android:text="신규업체"
             android:textColor="#AAAAAA" />
 

@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
-        android:background="#D3D3D3"
+        android:background="#9BE5C8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
@@ -65,25 +65,45 @@
                 app:layout_constraintTop_toTopOf="@+id/keyImageView" />
 
             <View
+                android:id="@+id/successView"
+                android:layout_width="0dp"
+                android:layout_height="98dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/rectangle_all_corner_radius_color"
+                app:layout_constraintEnd_toStartOf="@+id/nohintView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/keyImageView" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#9BE5C8"
+                app:layout_constraintEnd_toEndOf="@+id/successView"
+                app:layout_constraintStart_toStartOf="@+id/successView"
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+            <View
                 android:id="@+id/nohintView"
                 android:layout_width="183dp"
-                android:layout_height="108dp"
+                android:layout_height="98dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/rectangle_all_corner_radius"
+                android:background="@drawable/rectangle_all_corner_radius_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/successView" />
 
             <View
-                android:id="@+id/successView"
+                android:id="@+id/view6"
                 android:layout_width="0dp"
-                android:layout_height="108dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/rectangle_all_corner_radius"
-                app:layout_constraintEnd_toStartOf="@+id/nohintView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/keyImageView" />
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#9BE5C8"
+                app:layout_constraintEnd_toEndOf="@+id/nohintView"
+                app:layout_constraintStart_toStartOf="@+id/nohintView"
+                app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/profileRecyclerView"
@@ -96,6 +116,76 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/successView" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="성공률"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/successView"
+                app:layout_constraintStart_toStartOf="@+id/successView"
+                app:layout_constraintTop_toTopOf="@+id/successView" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="노힌트율"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/nohintView"
+                app:layout_constraintStart_toStartOf="@+id/nohintView"
+                app:layout_constraintTop_toTopOf="@+id/nohintView" />
+
+            <TextView
+                android:id="@+id/successPer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="0.0%"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/successView"
+                app:layout_constraintStart_toStartOf="@+id/successView"
+                app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+            <TextView
+                android:id="@+id/nohintPer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="0.0%"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/nohintView"
+                app:layout_constraintStart_toStartOf="@+id/nohintView"
+                app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+            <TextView
+                android:id="@+id/successCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="성공테마 리뷰 : 0"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/successView"
+                app:layout_constraintStart_toStartOf="@+id/successView"
+                app:layout_constraintTop_toBottomOf="@+id/successPer" />
+
+            <TextView
+                android:id="@+id/nohintCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="노힌트한 테마리뷰 : 0"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/nohintView"
+                app:layout_constraintStart_toStartOf="@+id/nohintView"
+                app:layout_constraintTop_toBottomOf="@+id/nohintPer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

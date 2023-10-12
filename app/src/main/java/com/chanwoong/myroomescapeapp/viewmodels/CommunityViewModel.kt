@@ -11,8 +11,6 @@ class CommunityViewModel : ViewModel(){
 
     init {
         items.add(Community("공지사항", "아직 개발중 입니다", " 관리자"))
-        items.add(Community("공지사항", "아직 개발중 입니다", " 관리자"))
-        items.add(Community("공지사항", "아직 개발중 입니다", " 관리자"))
     }
 
     fun getItem(pos: Int) =  items[pos]

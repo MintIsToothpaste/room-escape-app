@@ -197,7 +197,22 @@ class CafeFragment : Fragment(){
             slideupPopup.dismissAnim()
         }
         contentView.findViewById<Button>(R.id.recommend).setOnClickListener {
-
+            contentView.findViewById<Button>(R.id.recommend).isSelected = contentView.findViewById<Button>(R.id.recommend).isSelected != true
+        }
+        contentView.findViewById<Button>(R.id.review).setOnClickListener {
+            contentView.findViewById<Button>(R.id.review).isSelected = contentView.findViewById<Button>(R.id.review).isSelected != true
+        }
+        contentView.findViewById<Button>(R.id.grade).setOnClickListener {
+            contentView.findViewById<Button>(R.id.grade).isSelected = contentView.findViewById<Button>(R.id.grade).isSelected != true
+        }
+        contentView.findViewById<Button>(R.id.newcompany).setOnClickListener {
+            contentView.findViewById<Button>(R.id.newcompany).isSelected = contentView.findViewById<Button>(R.id.newcompany).isSelected != true
+        }
+        contentView.findViewById<Button>(R.id.different).setOnClickListener {
+            contentView.findViewById<Button>(R.id.different).isSelected = contentView.findViewById<Button>(R.id.different).isSelected != true
+        }
+        contentView.findViewById<Button>(R.id.solo).setOnClickListener {
+            contentView.findViewById<Button>(R.id.solo).isSelected = contentView.findViewById<Button>(R.id.solo).isSelected != true
         }
     }
 

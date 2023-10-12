@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/postName"
+        android:id="@+id/myPostName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="게시글 제목"
         android:textColor="@color/black"
         android:textStyle="bold" />
 
@@ -27,17 +26,15 @@
             android:orientation="vertical">
 
             <Space
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="5dp"
                 android:layout_weight="0" />
 
             <TextView
-                android:id="@+id/post"
+                android:id="@+id/myPostContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="게시글"
-                tools:ignore="NestedWeights" />
+                android:layout_weight="1" />
 
             <Space
                 android:layout_width="match_parent"
@@ -52,18 +49,19 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageView7"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 app:srcCompat="@drawable/bubble" />
 
             <TextView
-                android:id="@+id/reviewNumber"
+                android:id="@+id/myReviewNumber"
                 android:layout_width="25dp"
                 android:layout_height="wrap_content"
-                android:text="댓글 0"
+                android:text="댓글0"
                 android:textSize="8sp" />
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -72,23 +70,18 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageView8"
             android:layout_width="20dp"
             android:layout_height="20dp"
             app:srcCompat="@drawable/key" />
 
         <TextView
-            android:id="@+id/nickName"
+            android:id="@+id/myPostNickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="  nickname"
             android:textColor="@color/black"
             android:textStyle="bold" />
     </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="4dp" />
 
 </LinearLayout>

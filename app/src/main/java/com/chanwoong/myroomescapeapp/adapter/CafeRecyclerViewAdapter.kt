@@ -40,7 +40,6 @@ class CafeRecyclerViewAdapter(private val viewModel: CafeViewModel) :
                 }
 
                 itemView.setOnClickListener {
-
                     val intent = Intent(itemView.context, CafeDetailActivity::class.java)
                     ContextCompat.startActivity(itemView.context, intent, null)
                 }

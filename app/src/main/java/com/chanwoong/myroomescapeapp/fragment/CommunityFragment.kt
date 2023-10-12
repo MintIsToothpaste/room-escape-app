@@ -35,8 +35,8 @@ class CommunityFragment : Fragment() {
     private var _binding: FragmentCommunityBinding? = null
     private val binding get() = _binding!!
     private lateinit var requestPermLauncher: ActivityResultLauncher<Array<String>>
+    private val db = Firebase.firestore
     var retryCount = 0
-    val db = Firebase.firestore
 
     private val viewModel by viewModels<CommunityViewModel>()
 
@@ -76,7 +76,7 @@ class CommunityFragment : Fragment() {
         initToolbar()
         Handler(Looper.getMainLooper()).postDelayed({
             initCommunityRecyclerView()
-        }, 800)
+        }, 900)
 
         binding.postingButton.setOnClickListener {
             val intent = Intent(context, CommunityPostingActivity::class.java)

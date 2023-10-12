@@ -37,6 +37,11 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this);
 
+        with (viewModel.getItem(0)) {
+
+        }
+
+
     }
 
     @UiThread

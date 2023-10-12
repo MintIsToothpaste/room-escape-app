@@ -33,6 +33,7 @@ class CommunityPostingActivity : AppCompatActivity() {
                         "title" to title,
                         "post" to post,
                         "nickname" to nickname,
+                        "uid" to user.uid,
                     )
 
                     db.collection("posting").document(user.uid)
