@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 data class Community(val title: String, val post: String, val nickname: String)
 
 class CommunityViewModel : ViewModel(){
-    private val itemsListData = MutableLiveData<ArrayList<Community>>()
+    val itemsListData = MutableLiveData<ArrayList<Community>>()
     private val items = ArrayList<Community>()
 
     init {

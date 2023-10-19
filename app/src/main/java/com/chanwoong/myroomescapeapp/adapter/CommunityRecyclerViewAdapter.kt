@@ -18,7 +18,6 @@ class CommunityRecyclerViewAdapter (private val viewModel: CommunityViewModel) :
     inner class ViewHolder(private val binding: ItemLayoutCommunityBinding) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun setContents(pos: Int) {
-
             with (viewModel.getItem(pos)) {
                 binding.postName.text = title
                 binding.post.text = post

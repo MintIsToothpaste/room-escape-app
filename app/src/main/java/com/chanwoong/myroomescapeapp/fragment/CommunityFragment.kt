@@ -1,5 +1,6 @@
 package com.chanwoong.myroomescapeapp.fragment
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +15,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -69,21 +71,26 @@ class CommunityFragment : Fragment() {
         _binding = null
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentCommunityBinding.bind(view)
 
         initToolbar()
-        Handler(Looper.getMainLooper()).postDelayed({
-            initCommunityRecyclerView()
-        }, 900)
+        initCommunityRecyclerView()
 
         binding.postingButton.setOnClickListener {
             val intent = Intent(context, CommunityPostingActivity::class.java)
             context?.let { it1 -> ContextCompat.startActivity(it1, intent, null) }
         }
+
+        // LiveData의 value의 변경을 감지하고 호출
+        viewModel.itemsListData.observe(viewLifecycleOwner, Observer {
+            binding.communityRecyclerView.adapter?.notifyDataSetChanged()
+        })
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun attachSnapshotListener(){
         val docRef = db.collection("posting")
 
@@ -101,8 +108,6 @@ class CommunityFragment : Fragment() {
                             nickname
                         )
 
-                        Log.d(ContentValues.TAG, item.toString())
-
                         viewModel.addItem(item)
                     } else {
                         Log.d(ContentValues.TAG, "DocumentSnapshot null")
@@ -112,7 +117,6 @@ class CommunityFragment : Fragment() {
             .addOnFailureListener {
                 Log.d(ContentValues.TAG, "DocumentSnapshot fail")
             }
-
     }
 
     private fun initToolbar(){

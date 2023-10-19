@@ -1,7 +1,9 @@
 package com.chanwoong.myroomescapeapp.adapter
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -10,10 +12,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chanwoong.myroomescapeapp.CafeDetailActivity
 import com.chanwoong.myroomescapeapp.databinding.ItemLayoutCafeBinding
-import com.chanwoong.myroomescapeapp.viewmodels.CafeDetailThemeViewModel
-
 import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.item_layout_cafe.view.*
 
 class CafeRecyclerViewAdapter(private val viewModel: CafeViewModel) :
     RecyclerView.Adapter<CafeRecyclerViewAdapter.ViewHolder>() {
@@ -40,7 +41,10 @@ class CafeRecyclerViewAdapter(private val viewModel: CafeViewModel) :
                 }
 
                 itemView.setOnClickListener {
+                    viewModel.setCafe(itemView.cafeName.text.toString())
+
                     val intent = Intent(itemView.context, CafeDetailActivity::class.java)
+                    intent.putExtra("select", itemView.cafeName.text.toString())
                     ContextCompat.startActivity(itemView.context, intent, null)
                 }
             }

@@ -20,7 +20,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="16dp" />
+                android:layout_height="12dp" />
 
             <TextView
                 android:id="@+id/cafeNameEditText"
@@ -33,10 +33,10 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="16dp" />
+                android:layout_height="13dp" />
 
             <ImageView
-                android:id="@+id/themeImageView"
+                android:id="@+id/cafeDetailImageView"
                 android:layout_width="match_parent"
                 android:layout_height="250dp" />
 
@@ -118,7 +118,7 @@
                     android:layout_height="10dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/cafeDetailThemeRecyclerView"
+                    android:id="@+id/cafeDetailRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:nestedScrollingEnabled="false" />
