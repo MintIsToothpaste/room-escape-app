@@ -1,20 +1,23 @@
 package com.chanwoong.myroomescapeapp.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.chanwoong.myroomescapeapp.CafeDetailActivity
+import com.chanwoong.myroomescapeapp.ThemeDetailActivity
 import com.chanwoong.myroomescapeapp.databinding.ItemLayoutCafeDetailBinding
-import com.chanwoong.myroomescapeapp.viewmodels.ThemeList
 import com.chanwoong.myroomescapeapp.viewmodels.ThemeViewModel
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.item_layout_cafe.view.*
+import kotlinx.android.synthetic.main.item_layout_cafe_detail.view.*
 
 class CafeDetailRecyclerViewAdapter (private val viewModel: ThemeViewModel) :
     RecyclerView.Adapter<CafeDetailRecyclerViewAdapter.ViewHolder>() {
-
-    private var files = ArrayList<ThemeList>()
 
     inner class ViewHolder(private val binding: ItemLayoutCafeDetailBinding) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
@@ -39,8 +42,9 @@ class CafeDetailRecyclerViewAdapter (private val viewModel: ThemeViewModel) :
                 }
 
                 itemView.setOnClickListener {
-                    //val intent = Intent(itemView.context, CafeDetailActivity::class.java)
-                    //ContextCompat.startActivity(itemView.context, intent, null)
+                    val intent = Intent(itemView.context, ThemeDetailActivity::class.java)
+                    intent.putExtra("select", itemView.cafeNameTextView.text.toString())
+                    ContextCompat.startActivity(itemView.context, intent, null)
                 }
             }
         }

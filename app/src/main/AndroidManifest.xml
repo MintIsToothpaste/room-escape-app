@@ -38,6 +38,8 @@
             android:parentActivityName=".MainActivity"/>
         <activity android:name=".CafeDetailActivity"
             android:parentActivityName=".MainActivity"/>
+        <activity android:name=".ThemeDetailActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MembershipActivity"
             android:parentActivityName=".LoginActivity"/>

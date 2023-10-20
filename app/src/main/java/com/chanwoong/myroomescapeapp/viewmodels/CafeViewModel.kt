@@ -11,10 +11,10 @@ data class CafeList(val name: String, // 장소명
                  val location: String) // 위치
 
 class CafeViewModel : ViewModel(){
-    val itemsListData = MutableLiveData<ArrayList<CafeList>>()
+    private val itemsListData = MutableLiveData<ArrayList<CafeList>>()
     val items = ArrayList<CafeList>()
 
-    var selectCafe: String? = null
+    private val selectItems = ArrayList<CafeList>()
 
     init {
         items.add(CafeList("키이스케이프 LOG_IN 1", 11.11, 11.11, "keyescape.png", "서울"))
@@ -37,10 +37,19 @@ class CafeViewModel : ViewModel(){
         items.add(CafeList("키이스케이프 강남", 11.11, 11.11, "keyescape.png", "서울"))
     }
 
+    fun clearItem(){
+        selectItems.clear()
+    }
+
+    fun getSelectItem(pos: Int) = selectItems[pos]
+
     fun getItem(pos: Int) =  items[pos]
 
     val itemsSize
         get() = items.size
+
+    val selectItemsSize
+        get() = selectItems.size
 
     val itemClickEvent = MutableLiveData<Int>()
 
@@ -59,12 +68,9 @@ class CafeViewModel : ViewModel(){
         itemsListData.value = items
     }
 
-    fun setCafe(cafe: String?) {
-        selectCafe = cafe
-    }
-
-    fun getCafe(): String?{
-        return selectCafe
+    fun addSelectItem(item: CafeList) {
+        selectItems.add(item)
+        itemsListData.value = selectItems // let the observer know the livedata changed
     }
 
 }

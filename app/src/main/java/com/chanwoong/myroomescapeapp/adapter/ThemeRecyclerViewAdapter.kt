@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chanwoong.myroomescapeapp.CafeDetailActivity
+import com.chanwoong.myroomescapeapp.ThemeDetailActivity
 import com.chanwoong.myroomescapeapp.databinding.ItemLayoutCafeBinding
 import com.chanwoong.myroomescapeapp.databinding.ItemLayoutCafeDetailBinding
 import com.chanwoong.myroomescapeapp.viewmodels.CafeViewModel
 import com.chanwoong.myroomescapeapp.viewmodels.ThemeViewModel
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.item_layout_cafe.view.*
+import kotlinx.android.synthetic.main.item_layout_cafe_detail.view.*
 
 class ThemeRecyclerViewAdapter (private val viewModel: ThemeViewModel) :
     RecyclerView.Adapter<ThemeRecyclerViewAdapter.ViewHolder>() {
@@ -41,8 +44,12 @@ class ThemeRecyclerViewAdapter (private val viewModel: ThemeViewModel) :
                 }
 
                 itemView.setOnClickListener {
-                    //val intent = Intent(itemView.context, CafeDetailActivity::class.java)
-                    //ContextCompat.startActivity(itemView.context, intent, null)
+                    viewModel.clearItem()
+
+                    val intent = Intent(itemView.context, ThemeDetailActivity::class.java)
+                    intent.putExtra("selectCafe", itemView.cafeNameTextView.text.toString())
+                    intent.putExtra("selectTheme", itemView.themeNameTextView.text.toString())
+                    ContextCompat.startActivity(itemView.context, intent, null)
                 }
             }
         }

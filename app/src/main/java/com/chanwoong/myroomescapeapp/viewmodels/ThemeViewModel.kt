@@ -14,8 +14,6 @@ class ThemeViewModel : ViewModel(){
 
     private val selectItems = ArrayList<ThemeList>()
 
-    private var selectCafe: String? = null
-
     init {
         items.add(ThemeList("Odd bar", "씨이스케이프", "oddbar.jpg", "경기"))
         items.add(ThemeList("화생설화", "비트포비아 던전101", "tale.jpg", "서울"))
@@ -31,6 +29,10 @@ class ThemeViewModel : ViewModel(){
         items.add(ThemeList("이세계 용사", "이스케이프랩", "warrior.jpg", "서울"))
         items.add(ThemeList("NOMON", "황금열쇠 강남점", "nomon.jpg", "서울"))
 
+    }
+
+    fun clearItem(){
+        selectItems.clear()
     }
 
     fun getSelectItem(pos: Int) = selectItems[pos]
@@ -61,14 +63,6 @@ class ThemeViewModel : ViewModel(){
     fun addSelectItem(item: ThemeList) {
         selectItems.add(item)
         itemsListData.value = selectItems // let the observer know the livedata changed
-    }
-
-    fun setCafe(cafe: String?) {
-        selectCafe = cafe
-    }
-
-    fun getCafe(): String?{
-        return selectCafe
     }
 
 }
