@@ -41,8 +41,6 @@ class CafeRecyclerViewAdapter(private val viewModel: CafeViewModel) :
                 }
 
                 itemView.setOnClickListener {
-                    viewModel.clearItem()
-
                     val intent = Intent(itemView.context, CafeDetailActivity::class.java)
                     intent.putExtra("select", itemView.cafeName.text.toString())
                     ContextCompat.startActivity(itemView.context, intent, null)

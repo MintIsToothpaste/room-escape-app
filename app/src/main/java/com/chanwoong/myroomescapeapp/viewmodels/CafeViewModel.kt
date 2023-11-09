@@ -8,7 +8,8 @@ data class CafeList(val name: String, // 장소명
                  val x: Double, // 경도(Longitude)
                  val y: Double, // 위도(Latitude)
                  val url: String, // 이미지
-                 val location: String) // 위치
+                 val location: String, // 위치
+                 val rating: Float) // 별점
 
 class CafeViewModel : ViewModel(){
     private val itemsListData = MutableLiveData<ArrayList<CafeList>>()
@@ -17,24 +18,24 @@ class CafeViewModel : ViewModel(){
     private val selectItems = ArrayList<CafeList>()
 
     init {
-        items.add(CafeList("키이스케이프 LOG_IN 1", 11.11, 11.11, "keyescape.png", "서울"))
-        items.add(CafeList("싸인이스케이프 홍대점", 11.11, 11.11, "sign.jpg", "서울"))
-        items.add(CafeList("비트포비아 던전101", 11.11, 11.11, "bit.PNG", "서울"))
-        items.add(CafeList("씨이스케이프", 11.11, 11.11, "seeescape.png", "경기"))
-        items.add(CafeList("퀘스천마크", 11.11, 11.11, "question.png", "서울"))
-        items.add(CafeList("황금열쇠 유토피아호", 11.11, 11.11, "gold.png", "서울"))
-        items.add(CafeList("키이스케이프 메모리컴퍼니", 11.11, 11.11, "keyescape.png", "서울"))
-        items.add(CafeList("단편선", 11.11, 11.11, "short.png", "서울"))
-        items.add(CafeList("키이스케이프 강남더오름", 11.11, 11.11, "keyescape.png", "서울"))
-        items.add(CafeList("넥스트에디션 건대 보네르관", 11.11, 11.11, "next.PNG", "서울"))
-        items.add(CafeList("이스케이프랩", 11.11, 11.11, "lab.jpg", "서울"))
-        items.add(CafeList("황금열쇠 강남점", 11.11, 11.11, "gold.png", "서울"))
+        items.add(CafeList("키이스케이프 LOG_IN 1", 11.11, 11.11, "keyescape.png", "서울", 3.0F))
+        items.add(CafeList("싸인이스케이프 홍대점", 11.11, 11.11, "sign.jpg", "서울", 0.0F))
+        items.add(CafeList("비트포비아 던전101", 11.11, 11.11, "bit.PNG", "서울", 0.0F))
+        items.add(CafeList("씨이스케이프", 11.11, 11.11, "seeescape.png", "경기", 0.0F))
+        items.add(CafeList("퀘스천마크", 11.11, 11.11, "question.png", "서울", 0.0F))
+        items.add(CafeList("황금열쇠 유토피아호", 11.11, 11.11, "gold.png", "서울", 0.0F))
+        items.add(CafeList("키이스케이프 메모리컴퍼니", 11.11, 11.11, "keyescape.png", "서울", 0.0F))
+        items.add(CafeList("단편선", 11.11, 11.11, "short.png", "서울", 0.0F))
+        items.add(CafeList("키이스케이프 강남더오름", 11.11, 11.11, "keyescape.png", "서울", 0.0F))
+        items.add(CafeList("넥스트에디션 건대 보네르관", 11.11, 11.11, "next.PNG", "서울", 0.0F))
+        items.add(CafeList("이스케이프랩", 11.11, 11.11, "lab.jpg", "서울", 0.0F))
+        items.add(CafeList("황금열쇠 강남점", 11.11, 11.11, "gold.png", "서울", 0.0F))
 
 
-        items.add(CafeList("키이스케이프 LOG_IN 2", 11.11, 11.11, "keyescape.png", "서울"))
-        items.add(CafeList("키이스케이프 우주라이크", 11.11, 11.11, "keyescape.png", "서울"))
-        items.add(CafeList("키이스케이프 홍대", 11.11, 11.11, "keyescape.png", "서울"))
-        items.add(CafeList("키이스케이프 강남", 11.11, 11.11, "keyescape.png", "서울"))
+        items.add(CafeList("키이스케이프 LOG_IN 2", 11.11, 11.11, "keyescape.png", "서울", 0.0F))
+        items.add(CafeList("키이스케이프 우주라이크", 11.11, 11.11, "keyescape.png", "서울", 0.0F))
+        items.add(CafeList("키이스케이프 홍대", 11.11, 11.11, "keyescape.png", "서울", 0.0F))
+        items.add(CafeList("키이스케이프 강남", 11.11, 11.11, "keyescape.png", "서울", 0.0F))
     }
 
     fun clearItem(){

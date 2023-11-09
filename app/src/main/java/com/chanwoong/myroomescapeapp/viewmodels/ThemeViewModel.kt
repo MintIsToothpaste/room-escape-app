@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModel
 data class ThemeList(val name: String, // 테마명
                      val cafeName: String, // 카페명
                     val url: String, // 이미지
-                    val location: String) // 위치
+                    val location: String, // 위치
+                    val rating: Float) // 별점
 
 class ThemeViewModel : ViewModel(){
     private val itemsListData = MutableLiveData<ArrayList<ThemeList>>()
@@ -15,19 +16,19 @@ class ThemeViewModel : ViewModel(){
     private val selectItems = ArrayList<ThemeList>()
 
     init {
-        items.add(ThemeList("Odd bar", "씨이스케이프", "oddbar.jpg", "경기"))
-        items.add(ThemeList("화생설화", "비트포비아 던전101", "tale.jpg", "서울"))
-        items.add(ThemeList("MST 엔터테인먼트", "비트포비아 던전101", "mst.png", "서울"))
-        items.add(ThemeList("머니머니패키지", "키이스케이프 LOG_IN 1", "moneypackage.jpg", "서울"))
-        items.add(ThemeList("퀘스천마크", "퀘스천마크", "question.jpg", "서울"))
-        items.add(ThemeList("fl[ae]sh", "황금열쇠 유토피아호", "fl[ae]sh.png", "서울"))
-        items.add(ThemeList("FILM BY EDDY", "키이스케이프", "eddy.jpg", "서울"))
-        items.add(ThemeList("거상", "싸인이스케이프 홍대점", "merchant.jpg", "서울"))
-        items.add(ThemeList("그림자 없는 상자", "단편선", "shadow.png", "서울"))
-        items.add(ThemeList("NERD", "키이스케이프 강남더오름", "nerd.jpg", "서울"))
-        items.add(ThemeList("세렌디피티", "넥스트에디션 건대 보네르관", "serendipity.png", "서울"))
-        items.add(ThemeList("이세계 용사", "이스케이프랩", "warrior.jpg", "서울"))
-        items.add(ThemeList("NOMON", "황금열쇠 강남점", "nomon.jpg", "서울"))
+        items.add(ThemeList("Odd bar", "씨이스케이프", "oddbar.jpg", "경기", 3.0F))
+        items.add(ThemeList("화생설화", "비트포비아 던전101", "tale.jpg", "서울", 0.0F))
+        items.add(ThemeList("MST 엔터테인먼트", "비트포비아 던전101", "mst.png", "서울", 0.0F))
+        items.add(ThemeList("머니머니패키지", "키이스케이프 LOG_IN 1", "moneypackage.jpg", "서울", 0.0F))
+        items.add(ThemeList("퀘스천마크", "퀘스천마크", "question.jpg", "서울", 0.0F))
+        items.add(ThemeList("fl[ae]sh", "황금열쇠 유토피아호", "fl[ae]sh.png", "서울", 0.0F))
+        items.add(ThemeList("FILM BY EDDY", "키이스케이프", "eddy.jpg", "서울", 0.0F))
+        items.add(ThemeList("거상", "싸인이스케이프 홍대점", "merchant.jpg", "서울", 0.0F))
+        items.add(ThemeList("그림자 없는 상자", "단편선", "shadow.png", "서울", 0.0F))
+        items.add(ThemeList("NERD", "키이스케이프 강남더오름", "nerd.jpg", "서울", 0.0F))
+        items.add(ThemeList("세렌디피티", "넥스트에디션 건대 보네르관", "serendipity.png", "서울", 0.0F))
+        items.add(ThemeList("이세계 용사", "이스케이프랩", "warrior.jpg", "서울", 0.0F))
+        items.add(ThemeList("NOMON", "황금열쇠 강남점", "nomon.jpg", "서울", 0.0F))
 
     }
 

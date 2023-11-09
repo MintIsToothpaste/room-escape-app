@@ -38,7 +38,7 @@
             <ImageView
                 android:id="@+id/themeDetailImageView"
                 android:layout_width="match_parent"
-                android:layout_height="250dp" />
+                android:layout_height="450dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

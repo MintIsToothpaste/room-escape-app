@@ -1,7 +1,9 @@
 package com.chanwoong.myroomescapeapp.adapter
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -22,6 +24,8 @@ class ThemeDetailRecyclerViewAdapter (private val viewModel: CafeViewModel) :
         fun setContents(pos: Int) {
             val storage: FirebaseStorage = FirebaseStorage.getInstance("gs://my-room-escape-app.appspot.com/")
             val storageReference = storage.reference
+
+            //Log.d(ContentValues.TAG, viewModel.selectItemsSize.toString())
 
             with (viewModel.getSelectItem(pos)) {
                 val pathReference = storageReference.child("cafe/$url")

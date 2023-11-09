@@ -44,8 +44,6 @@ class ThemeRecyclerViewAdapter (private val viewModel: ThemeViewModel) :
                 }
 
                 itemView.setOnClickListener {
-                    viewModel.clearItem()
-
                     val intent = Intent(itemView.context, ThemeDetailActivity::class.java)
                     intent.putExtra("selectCafe", itemView.cafeNameTextView.text.toString())
                     intent.putExtra("selectTheme", itemView.themeNameTextView.text.toString())

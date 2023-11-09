@@ -26,6 +26,9 @@ class ThemeDetailActivity : AppCompatActivity() {
         binding = ActivityThemeDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModelTheme.clearItem()
+        viewModelCafe.clearItem()
+
         val selectCafe = intent.getStringExtra("selectCafe")
         val selectTheme = intent.getStringExtra("selectTheme")
 
@@ -36,8 +39,12 @@ class ThemeDetailActivity : AppCompatActivity() {
         val storageReference = storage.reference
 
         var url = ""
+        var themeRating = 0.0F
         for(i: Int in 0 until viewModelTheme.itemsSize){
-            if(viewModelTheme.getItem(i).name == selectTheme) url = viewModelTheme.getItem(i).url
+            if(viewModelTheme.getItem(i).name == selectTheme) {
+                url = viewModelTheme.getItem(i).url
+                themeRating = viewModelTheme.getItem(i).rating
+            }
         }
         val pathReference = storageReference.child("recommendedTheme/$url")
 
@@ -55,9 +62,8 @@ class ThemeDetailActivity : AppCompatActivity() {
             if(viewModelCafe.getItem(i).name == selectCafe) viewModelCafe.addSelectItem(viewModelCafe.getItem(i))
         }
 
-        binding.ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
-            binding.rateingTextView.text = "$rating"
-        }
+        binding.ratingBar.rating = themeRating
+        binding.rateingTextView.text = "${themeRating.toDouble()}"
 
         initThemeDetailRecyclerView()
     }

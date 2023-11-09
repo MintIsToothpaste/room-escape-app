@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 data class MyPost(val title: String, val post: String, val nickname: String)
 
 class MyPostViewModel : ViewModel(){
-    private val itemsListData = MutableLiveData<ArrayList<MyPost>>()
+    val itemsListData = MutableLiveData<ArrayList<MyPost>>()
     private val items = ArrayList<MyPost>()
 
     init {

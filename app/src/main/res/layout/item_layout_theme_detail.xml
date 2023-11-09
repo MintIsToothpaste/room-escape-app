@@ -11,11 +11,11 @@
 
     <ImageView
         android:id="@+id/recommendedThemeImageView"
-        android:layout_width="110dp"
+        android:layout_width="200dp"
         android:layout_height="150dp"
         android:layout_weight="1"
         android:background="@drawable/rectangle_all_corner_radius"
-        app:srcCompat="@drawable/ic_launcher_foreground"/>
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <LinearLayout
         android:layout_width="match_parent"

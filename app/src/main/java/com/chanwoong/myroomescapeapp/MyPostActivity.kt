@@ -1,5 +1,6 @@
 package com.chanwoong.myroomescapeapp
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.os.Bundle
 import android.os.Handler
@@ -7,6 +8,7 @@ import android.os.Looper
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chanwoong.myroomescapeapp.adapter.MyPostRecyclerViewAdapter
@@ -30,6 +32,7 @@ class MyPostActivity : AppCompatActivity() {
         attachSnapshotListener()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMyPostBinding.inflate(layoutInflater)
@@ -38,6 +41,11 @@ class MyPostActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             initMyPostRecyclerView()
         }, 900)
+
+        // LiveData의 value의 변경을 감지하고 호출
+        viewModel.itemsListData.observe(this, Observer {
+            binding.myPostReclerView.adapter?.notifyDataSetChanged()
+        })
 
     }
 

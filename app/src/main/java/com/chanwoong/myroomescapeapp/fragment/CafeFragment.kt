@@ -112,7 +112,7 @@ class CafeFragment : Fragment(){
             // 결과를 리사이클러 뷰에 추가
                 val item = CafeList(document.place_name,
                     document.x.toDouble(),
-                    document.y.toDouble(), "", "")
+                    document.y.toDouble(), "", "", 0.0F)
                 viewModel.addItem(item)
             }
             initCafeRecyclerView()

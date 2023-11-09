@@ -43,7 +43,8 @@ class CafeDetailRecyclerViewAdapter (private val viewModel: ThemeViewModel) :
 
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, ThemeDetailActivity::class.java)
-                    intent.putExtra("select", itemView.cafeNameTextView.text.toString())
+                    intent.putExtra("selectCafe", itemView.cafeNameTextView.text.toString())
+                    intent.putExtra("selectTheme", itemView.themeNameTextView.text.toString())
                     ContextCompat.startActivity(itemView.context, intent, null)
                 }
             }
