@@ -43,6 +43,6 @@ class CafeReviewRecyclerViewAdapter (private val viewModel: CafeReviewModel) :
         viewHolder.setContents(position)
     }
 
-    override fun getItemCount() = 3
+    override fun getItemCount() = viewModel.itemsSize
 
 }

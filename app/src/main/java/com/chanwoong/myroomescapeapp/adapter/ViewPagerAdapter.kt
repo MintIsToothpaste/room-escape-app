@@ -9,7 +9,8 @@ import com.chanwoong.myroomescapeapp.R
 import com.chanwoong.myroomescapeapp.model.BannerItem
 import kotlinx.android.synthetic.main.item_layout_banner.view.*
 
-class ViewPagerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class
+ViewPagerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
         const val ITEM_COUNT = 3
     }

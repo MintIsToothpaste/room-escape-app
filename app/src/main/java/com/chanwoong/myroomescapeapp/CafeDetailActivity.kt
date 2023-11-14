@@ -2,10 +2,12 @@ package com.chanwoong.myroomescapeapp
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -85,7 +87,9 @@ class CafeDetailActivity : AppCompatActivity() {
         }
 
         binding.reviewButton.setOnClickListener {
-
+            startActivity(
+                Intent(this, CafeReviewPostingActivity::class.java))
+            finish()
         }
 
         // LiveData의 value의 변경을 감지하고 호출

@@ -29,16 +29,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".ReviewActivity" />
         <activity android:name=".NoticeActivity" />
         <activity android:name=".MyPostActivity" />
-        <activity android:name=".CommunityPostingActivity"
+        <activity
+            android:name=".CommunityPostingActivity"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".SettingActivity"
+        <activity
+            android:name=".SettingActivity"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".CafeDetailActivity"
+        <activity
+            android:name=".CafeDetailActivity"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".ThemeDetailActivity"
+        <activity android:name=".CafeReviewPostingActivity"/>
+        <activity
+            android:name=".ThemeDetailActivity"
             android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MembershipActivity"
