@@ -9,6 +9,7 @@ import com.chanwoong.myroomescapeapp.databinding.ActivityCafeReviewPostingBindin
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.time.LocalDate
 
 class CafeReviewPostingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCafeReviewPostingBinding
@@ -19,6 +20,8 @@ class CafeReviewPostingActivity : AppCompatActivity() {
         binding = ActivityCafeReviewPostingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val selectCafe = intent.getStringExtra("select").toString()
+
         binding.postButton.setOnClickListener {
             val user = Firebase.auth.currentUser
 
@@ -26,16 +29,20 @@ class CafeReviewPostingActivity : AppCompatActivity() {
             docRef?.get()?.addOnSuccessListener { document ->
                 if (document != null) {
                     val review = binding.postEditText.text.toString().trim()
+                    val nickname = document["nickname"]
                     val whoPosted = "${Firebase.auth.currentUser?.uid}"
                     val rating = binding.ratingBar2.rating.toString().trim()
+                    val onlyDate: String = LocalDate.now().toString().trim()
 
                     val itemMap = hashMapOf(
-                        "whoPosted" to whoPosted,
+                        "cafe" to selectCafe,
+                        "nickname" to nickname,
+                        "rating" to rating,
                         "review" to review,
-                        "rating" to rating
+                        "time" to onlyDate
                     )
 
-                    db.collection("review").document()
+                    db.collection("cafeReview").document()
                         .set(itemMap)
                         .addOnSuccessListener {
                             Log.d(ContentValues.TAG, "DocumentSnapshot successfully written!")

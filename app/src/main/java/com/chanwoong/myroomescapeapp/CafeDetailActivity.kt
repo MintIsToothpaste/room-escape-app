@@ -87,8 +87,10 @@ class CafeDetailActivity : AppCompatActivity() {
         }
 
         binding.reviewButton.setOnClickListener {
-            startActivity(
-                Intent(this, CafeReviewPostingActivity::class.java))
+            val intent = Intent(this, CafeReviewPostingActivity::class.java)
+            intent.putExtra("select", selectCafe)
+            startActivity(intent)
+
             finish()
         }
 

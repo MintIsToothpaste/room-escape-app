@@ -21,7 +21,6 @@ class RecommendedThemeRecyclerViewAdapter(private val viewModel: RecommendedThem
             val storage: FirebaseStorage = FirebaseStorage.getInstance("gs://my-room-escape-app.appspot.com/")
             val storageReference = storage.reference
 
-
             with (viewModel.getItem(pos)) {
                 val pathReference = storageReference.child("recommendedTheme/$url")
 
@@ -43,6 +42,7 @@ class RecommendedThemeRecyclerViewAdapter(private val viewModel: RecommendedThem
                     ContextCompat.startActivity(itemView.context, intent, null)
                 }
             }
+
         }
     }
 
